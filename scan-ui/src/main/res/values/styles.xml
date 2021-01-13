@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="BouncerDefaultTheme" parent="Theme.AppCompat.Light.NoActionBar.FullScreen">
+        <item name="background">@color/bouncerNotFoundBackground</item>
+
+        <item name="bouncerNotFoundBackgroundColor">@color/bouncerNotFoundBackground</item>
+        <item name="bouncerNotFoundOutlineColor">@color/bouncerNotFoundOutline</item>
+        <item name="bouncerNotFoundOutlineWidth">@integer/bouncerNotFoundOutlineWidth</item>
+
+        <item name="bouncerFoundBackgroundColor">@color/bouncerFoundBackground</item>
+        <item name="bouncerFoundOutlineColor">@color/bouncerFoundOutline</item>
+        <item name="bouncerFoundOutlineWidth">@integer/bouncerFoundOutlineWidth</item>
+
+        <item name="bouncerWrongBackgroundColor">@color/bouncerWrongBackground</item>
+        <item name="bouncerWrongOutlineColor">@color/bouncerWrongOutline</item>
+        <item name="bouncerWrongOutlineWidth">@integer/bouncerWrongOutlineWidth</item>
+
+        <item name="bouncerCorrectBackgroundColor">@color/bouncerCorrectBackground</item>
+        <item name="bouncerCorrectOutlineColor">@color/bouncerCorrectOutline</item>
+        <item name="bouncerCorrectOutlineWidth">@integer/bouncerCorrectOutlineWidth</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <attr name="bouncerCardPanColor" format="color" />
+    <attr name="bouncerCardExpiryColor" format="color" />
+
+    <attr name="bouncerNotFoundBackgroundColor" format="color" />
+    <attr name="bouncerNotFoundOutlineColor" format="color" />
+    <attr name="bouncerNotFoundOutlineWidth" format="dimension" />
+
+    <attr name="bouncerFoundBackgroundColor" format="color" />
+    <attr name="bouncerFoundOutlineColor" format="color" />
+    <attr name="bouncerFoundOutlineWidth" format="dimension" />
+
+    <attr name="bouncerWrongBackgroundColor" format="color" />
+    <attr name="bouncerWrongOutlineColor" format="color" />
+    <attr name="bouncerWrongOutlineWidth" format="dimension" />
+
+    <attr name="bouncerCorrectBackgroundColor" format="color" />
+    <attr name="bouncerCorrectOutlineColor" format="color" />
+    <attr name="bouncerCorrectOutlineWidth" format="dimension" />
+
+    <declare-styleable name="ViewFinderBackground">
+        <attr name="backgroundColor" format="color" />
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,81 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+plugins {
+    id "com.jfrog.bintray" version "1.8.5"
+    id "com.github.dcendents.android-maven" version "2.1"
+    id 'org.jetbrains.kotlin.plugin.serialization' version "1.4.21"
+}
+
+allprojects {
+    apply plugin: 'checkstyle'
+
+    checkstyle {
+        toolVersion '8.29'
+    }
+
+    configurations {
+        javadocDeps
+        kotlinlint
+    }
+
+    dependencies {
+        kotlinlint "com.pinterest:ktlint:0.40.0"
+    }
+
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    task checkJavaStyle(type: Checkstyle) {
+        showViolations = true
+        configFile file("../settings/checkstyle.xml")
+        source 'src/main/java'
+        include '**/*.java'
+        exclude '**/gen/**'
+        exclude '**/R.java'
+        exclude '**/BuildConfig.java'
+
+        // empty classpath
+        classpath = files()
+    }
+
+    task ktlint(type: JavaExec, group: "verification") {
+        description = "Check Kotlin code style."
+        main = "com.pinterest.ktlint.Main"
+        classpath = configurations.kotlinlint
+        args "src/**/*.kt"
+        // to generate report in checkstyle format prepend following args:
+        // "--reporter=plain", "--reporter=checkstyle,output=${buildDir}/ktlint.xml"
+        // see https://github.com/pinterest/ktlint#usage for more
+    }
+
+    task ktlintFormat(type: JavaExec, group: "formatting") {
+        description = "Fix Kotlin code style deviations."
+        main = "com.pinterest.ktlint.Main"
+        classpath = configurations.kotlinlint
+        args "-F", "src/**/*.kt"
+    }
+
+    assemble.dependsOn('lint')
+    check.dependsOn checkJavaStyle
+    check.dependsOn ktlint
+}

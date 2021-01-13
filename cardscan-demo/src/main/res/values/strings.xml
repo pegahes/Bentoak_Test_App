@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">CardScan Demo</string>
+
+    <string name="scan_card">Scan Card</string>
+
+    <string name="scan_canceled">Scan canceled</string>
+    <string name="enter_manually">Enter card manually</string>
+    <string name="camera_error">Camera error</string>
+    <string name="analyzer_error">Analyzer error</string>
+    <string name="unknown_reason">Unknown reason</string>
+    <string name="single_activity_demo">Single Activity Demo</string>
+
+    <string name="enableDebug">Enable Debug</string>
+    <string name="enableNameExtraction">Enable name extraction</string>
+    <string name="enableExpiryExtraction">Enable expiry extraction</string>
+    <string name="enableEnterCardManually">Enable manual entry</string>
+</resources>
